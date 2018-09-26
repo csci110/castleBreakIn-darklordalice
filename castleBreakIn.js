@@ -123,7 +123,7 @@ class Ball extends Sprite {
 
     handleCollision() {
         game.removeSprite(this);
-
+        
     }
 }
 
@@ -140,8 +140,10 @@ class Block extends Sprite {
     }
 }
 
+Block.blocksToDestroy = Block.blocksToDestroy + 1;
+
 for (let i = 0; i < 5; i = i + 1) {
     new Block(200 + i * 48, 200);
 }
 
-Block.blocksToDestroy + 1;
+
