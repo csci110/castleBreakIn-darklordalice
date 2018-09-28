@@ -138,6 +138,15 @@ class Block extends Sprite {
         this.setImage("block1.png");
         this.accelerateOnBounce = false;
     }
+    
+    handleCollision() {
+        game.removeSprite(this);
+        Block.blocksToDestroy = Block.blocksToDestroy - 1;
+        if (Block.blocksToDestroy <= 0) {
+            game.end("Congratulations!\nPrincess Ann Can Continue Her Pursuit" +
+            "\n\nof The Mysterious Stranger!");
+        }
+    }
 }
 
 Block.blocksToDestroy = Block.blocksToDestroy + 1;
