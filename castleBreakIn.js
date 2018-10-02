@@ -91,7 +91,7 @@ class Princess extends Sprite {
                 "\n\nBetter Luck Next Time!");
         }
     }
-    
+
     addALife() {
         this.lives = this.lives + 1;
         this.updateLivesDisplay();
@@ -124,7 +124,7 @@ class Ball extends Sprite {
 
     handleBoundaryContact() {
         game.removeSprite(this);
-      
+
         Ball.ballsInPlay = Ball.ballsInPlay - 1;
         if (Ball.ballsInPlay <= 0) {
             ann.loseALife();
@@ -166,19 +166,19 @@ for (let i = 0; i < 5; i = i + 1) {
 
 class ExtraLifeBlock extends Block {
     constructor(x, y) {
-        super(x, y); 
+        super(x, y);
         this.x = 200;
         this.y = 250;
         this.setImage("block2.png");
         Block.blocksToDestroy = Block.blocksToDestroy - 1;
     }
-    
+
     handleCollision() {
         ann.addALife();
         return true;
     }
 }
- 
+
 new ExtraLifeBlock(200, 250);
 
 class ExtraBallBlock extends Block {
@@ -188,7 +188,7 @@ class ExtraBallBlock extends Block {
         this.y = 250;
         this.setImage("block3.png");
     }
-    
+
     handleCollision() {
         super.handleCollision(); // call function in superclass
         new Ball(game.displayWidth / 2, game.displayHeight / 2, "Ball", "ball.png"); //extend superclass behavior
